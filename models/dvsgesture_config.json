@@ -1,0 +1,23 @@
+{
+  "num_classes": 11,
+  "n_frames": 60,
+  "sensor_size": [
+    128,
+    128,
+    2
+  ],
+  "normalization": "per-sample-max",
+  "class_names": [
+    "Hand clapping",
+    "Right hand wave",
+    "Left hand wave",
+    "Right arm cw",
+    "Right arm ccw",
+    "Left arm cw",
+    "Left arm ccw",
+    "Arm roll",
+    "Air drums",
+    "Air guitar",
+    "Other gestures"
+  ]
+}
