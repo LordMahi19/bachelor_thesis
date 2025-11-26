@@ -1,0 +1,98 @@
+
+*** arguments:
+auto_timestamp_resolution:	True
+avi_frame_rate:	30
+batch_size:	8
+crop:	None
+cs_lambda_pixels:	None
+cs_tau_p_ms:	None
+cutoff_hz:	300.0
+ddd_output:	False
+disable_slomo:	False
+dvs1024:	False
+dvs128:	True
+dvs240:	False
+dvs346:	False
+dvs640:	False
+dvs_aedat2:	None
+dvs_aedat4:	None
+dvs_emulator_seed:	0
+dvs_exposure:	['duration', '0.01']
+dvs_h5:	None
+dvs_params:	None
+dvs_text:	None
+dvs_vid:	dvs-video.avi
+dvs_vid_full_scale:	2
+hdr:	False
+input:	None
+input_frame_rate:	None
+input_slowmotion_factor:	1.0
+label_signal_noise:	False
+leak_jitter_fraction:	0.1
+leak_rate_hz:	0.0
+neg_thres:	0.2
+no_preview:	False
+noise_rate_cov_decades:	0.1
+output_folder:	C:\Users\mahia\OneDrive - LUT University\Desktop\thesis\event\synthetic_airdrums_events
+output_height:	None
+output_in_place:	False
+output_width:	None
+overwrite:	False
+photoreceptor_noise:	False
+pos_thres:	0.2
+record_single_pixel_states:	None
+refractory_period:	0.0005
+save_dvs_model_state:	False
+scidvs:	False
+shot_noise_rate_hz:	0.0
+show_dvs_model_state:	None
+sigma_thres:	0.03
+skip_video_output:	False
+slomo_model:	C:\Users\mahia\OneDrive - LUT University\Desktop\thesis\event\v2e\input\SuperSloMo39.ckpt
+slomo_stats_plot:	False
+start_time:	None
+stop_time:	None
+synthetic_input:	None
+timestamp_resolution:	None
+unique_output_folder:	True
+vid_orig:	video_orig.avi
+vid_slomo:	video_slomo.avi
+
+**** extra other arguments (please check if you are misspelling intended arguments):
+--video_input
+synthetic_airdrums.mp4
+
+*** command line:
+ v2e/v2e.py --video_input synthetic_airdrums.mp4 --output_folder synthetic_airdrums_events --dvs128 --cutoff_hz 300 --leak_rate_hz 0 --sigma_thr 0.03 --shot_noise_rate_hz 0 --pos_thres 0.22025-11-16 02:54:15,719 - __main__ - [1;34mINFO[1;0m - opening video input file C:\Users\mahia\OneDrive - LUT University\Desktop\thesis\event\synthetic_airdrums.mp4
+2025-11-16 02:54:15,724 - __main__ - [1;34mINFO[1;0m - --auto_timestamp_resolution=True and timestamp_resolution is not set: source video will be automatically upsampled to limit maximum interframe motion to 1 pixel
+2025-11-16 02:54:15,726 - __main__ - [1;34mINFO[1;0m - Source video C:\Users\mahia\OneDrive - LUT University\Desktop\thesis\event\synthetic_airdrums.mp4 has total 300 frames with total duration 4.98s. 
+Source video is 60fps with slowmotion_factor 1 (frame interval 16.67ms),
+Will convert 300 frames 0 to 299
+(From 0.0s to 4.983333333333333s, duration 4.983333333333333s)
+2025-11-16 02:54:15,726 - __main__ - [1;34mINFO[1;0m - v2e DVS video will have constant-duration frames 
+at 100fps (accumulation time 10ms), 
+DVS video will have 498.0 frames with duration 4.98s and playback duration 16.60s
+
+2025-11-16 02:54:15,728 - __main__ - [1;34mINFO[1;0m - processing frames 0 to 299 from video input
+2025-11-16 02:54:15,729 - __main__ - [1;34mINFO[1;0m - Input video C:\Users\mahia\OneDrive - LUT University\Desktop\thesis\event\synthetic_airdrums.mp4 has W=128 x H=128 frames each with 3 channels
+2025-11-16 02:54:15,729 - __main__ - [1;34mINFO[1;0m - *** Stage 1/3: Resizing 300 input frames to output size (with possible RGB to luma conversion)
+2025-11-16 02:54:15,741 - __main__ - [1;34mINFO[1;0m - 
+Converting input frames from RGB color to luma
+2025-11-16 02:54:15,960 - __main__ - [1;34mINFO[1;0m - *** Stage 2/3: SloMo upsampling from C:\Users\mahia\AppData\Local\Temp\tmp9uilh5vd
+2025-11-16 03:05:04,575 - __main__ - [1;34mINFO[1;0m - SloMo average upsampling factor=17.89; average DVS timestamp resolution=931.37us
+2025-11-16 03:05:04,575 - __main__ - [1;34mINFO[1;0m - Using auto_timestamp_resolution. checking if cutoff hz is ok given sample rate 1073.6842105263158
+2025-11-16 03:05:04,575 - __main__ - [1;31mWARNING[1;0m - Lowpass 3dB cutoff is f_3dB=300Hz (time constant tau=530.52us) with sample rate fs=1.07kHz (sample interval dt=931.37us) ,
+  but this results in large IIR mixing factor eps = dt/tau = 1.756 >  0.3 (maxeps),
+ which means the lowpass will filter  few or even just last sample, i.e. you will not be lowpassing as expected.
+We recommend either
+ -decreasing --timestamp_resolution of DVS events below 159.15us
+ -decreasing --cutoff_frequency_hz below 51.26Hz
+2025-11-16 03:05:04,596 - __main__ - [1;34mINFO[1;0m - *** Stage 3/3: emulating DVS events from 5385 frames
+2025-11-16 03:09:55,303 - __main__ - [1;34mINFO[1;0m - generated total 3.23M events (1.61M on, 1.62M off)
+2025-11-16 03:09:55,304 - __main__ - [1;34mINFO[1;0m - Avg event rate for N=16384 px and total time =4.983 s
+	Total: 647.67kHz (323.46kHz on, 324.21kHz off)
+	Per pixel:  39.53Hz (19.74Hz on, 19.79Hz off)
+2025-11-16 03:09:55,305 - __main__ - [1;34mINFO[1;0m - could not show notification: No module named 'plyer'
+2025-11-16 03:09:55,305 - __main__ - [1;34mINFO[1;0m - showing C:\Users\mahia\OneDrive - LUT University\Desktop\thesis\event\synthetic_airdrums_events-1 in desktop
+2025-11-16 03:09:55,436 - __main__ - [1;34mINFO[1;0m - done processing 600 frames in 939.58s (1.57s/fr)
+ **************** see output folder C:\Users\mahia\OneDrive - LUT University\Desktop\thesis\event\synthetic_airdrums_events-1
