@@ -1,0 +1,91 @@
+
+*** arguments:
+auto_timestamp_resolution:	True
+avi_frame_rate:	30
+batch_size:	8
+crop:	None
+cs_lambda_pixels:	None
+cs_tau_p_ms:	None
+cutoff_hz:	15.0
+ddd_output:	False
+disable_slomo:	False
+dvs1024:	False
+dvs128:	True
+dvs240:	False
+dvs346:	False
+dvs640:	False
+dvs_aedat2:	None
+dvs_aedat4:	5.aedat4
+dvs_emulator_seed:	0
+dvs_exposure:	['duration', '0.01']
+dvs_h5:	5.h5
+dvs_params:	None
+dvs_text:	None
+dvs_vid:	dvs-video.avi
+dvs_vid_full_scale:	2
+hdr:	False
+input:	C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\newdata\rawdata\5.mp4
+input_frame_rate:	None
+input_slowmotion_factor:	1.0
+label_signal_noise:	False
+leak_jitter_fraction:	0.1
+leak_rate_hz:	0.01
+neg_thres:	0.15
+no_preview:	True
+noise_rate_cov_decades:	0.1
+output_folder:	C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\newdata\generated_events\5
+output_height:	None
+output_in_place:	False
+output_width:	None
+overwrite:	True
+photoreceptor_noise:	False
+pos_thres:	0.15
+record_single_pixel_states:	None
+refractory_period:	0.0005
+save_dvs_model_state:	False
+scidvs:	False
+shot_noise_rate_hz:	0.001
+show_dvs_model_state:	None
+sigma_thres:	0.03
+skip_video_output:	False
+slomo_model:	C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\v2e\input\SuperSloMo39.ckpt
+slomo_stats_plot:	False
+start_time:	None
+stop_time:	None
+synthetic_input:	None
+timestamp_resolution:	0.003
+unique_output_folder:	True
+vid_orig:	video_orig.avi
+vid_slomo:	video_slomo.avi
+
+*** command line:
+ v2e\v2e.py -i newdata\rawdata\5.mp4 --output_folder newdata\generated_events\5 --dvs128 --pos_thres=0.15 --neg_thres=0.15 --sigma_thres=0.03 --cutoff_hz=15 --timestamp_resolution=0.003 --dvs_aedat4 5.aedat4 --dvs_h5 5.h5 --overwrite --no_preview2025-11-27 04:35:22,169 - __main__ - [1;34mINFO[1;0m - auto_timestamp_resolution=True and timestamp_resolution=0.003: Limiting automatic upsampling to maximum timestamp interval.
+2025-11-27 04:35:22,177 - __main__ - [1;34mINFO[1;0m - opening video input file C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\newdata\rawdata\5.mp4
+2025-11-27 04:35:22,235 - __main__ - [1;34mINFO[1;0m - --auto_timestamp_resolution=True and timestamp_resolution=3ms: source video will be automatically upsampled but with at least upsampling factor of 14
+2025-11-27 04:35:22,240 - __main__ - [1;34mINFO[1;0m - Source video C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\newdata\rawdata\5.mp4 has total 192 frames with total duration 7.96s. 
+Source video is 24fps with slowmotion_factor 1 (frame interval 41.67ms),
+Will convert 192 frames 0 to 191
+(From 0.0s to 7.958333333333333s, duration 7.958333333333333s)
+2025-11-27 04:35:22,240 - __main__ - [1;34mINFO[1;0m - v2e DVS video will have constant-duration frames 
+at 100fps (accumulation time 10ms), 
+DVS video will have 795.0 frames with duration 7.95s and playback duration 26.50s
+
+2025-11-27 04:35:22,260 - __main__ - [1;34mINFO[1;0m - processing frames 0 to 191 from video input
+2025-11-27 04:35:22,275 - __main__ - [1;34mINFO[1;0m - Input video C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\newdata\rawdata\5.mp4 has W=1280 x H=720 frames each with 3 channels
+2025-11-27 04:35:22,278 - __main__ - [1;34mINFO[1;0m - *** Stage 1/3: Resizing 192 input frames to output size (with possible RGB to luma conversion)
+2025-11-27 04:35:22,323 - __main__ - [1;34mINFO[1;0m - 
+Converting input frames from RGB color to luma
+2025-11-27 04:35:24,182 - __main__ - [1;34mINFO[1;0m - *** Stage 2/3: SloMo upsampling from C:\Users\mahia\AppData\Local\Temp\tmpfhfzyo3y
+2025-11-27 04:36:24,424 - __main__ - [1;34mINFO[1;0m - SloMo average upsampling factor=14.00; average DVS timestamp resolution=2.98ms
+2025-11-27 04:36:24,425 - __main__ - [1;34mINFO[1;0m - Using auto_timestamp_resolution. checking if cutoff hz is ok given sample rate 336.0
+2025-11-27 04:36:24,425 - __main__ - [1;34mINFO[1;0m - Lowpass cutoff is f_3dB=15Hz with tau=10.61ms and with sample rate fs=336Hz (sample interval dt=2.98ms),
+It has IIR mixing factor eps=0.280 which is OK because it is less than recommended maxeps= 0.3
+2025-11-27 04:36:24,458 - __main__ - [1;34mINFO[1;0m - *** Stage 3/3: emulating DVS events from 2674 frames
+2025-11-27 04:39:57,439 - __main__ - [1;34mINFO[1;0m - generated total 790.06k events (398.30k on, 391.76k off)
+2025-11-27 04:39:57,440 - __main__ - [1;34mINFO[1;0m - Avg event rate for N=16384 px and total time =7.958 s
+	Total: 99.27kHz (50.05kHz on, 49.23kHz off)
+	Per pixel:  6.06Hz (3.05Hz on, 3Hz off)
+2025-11-27 04:39:57,517 - __main__ - [1;34mINFO[1;0m - generating desktop notification
+2025-11-27 04:39:57,535 - __main__ - [1;34mINFO[1;0m - showing C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\newdata\generated_events\5 in desktop
+2025-11-27 04:39:57,889 - __main__ - [1;34mINFO[1;0m - done processing 384 frames in 275.26s (1.40fr/s)
+ **************** see output folder C:\Users\mahia\OneDrive - LUT University\Desktop\fall 2025\thesis\thesis\event\newdata\generated_events\5
