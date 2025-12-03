@@ -4,8 +4,8 @@ from pathlib import Path
 
 def convert_videos():
     # Configuration
-    input_dir = Path("./newdata/rawdata")
-    output_dir = Path("./newdata/generated_events")
+    input_dir = Path("./dataset")
+    output_dir = Path("./dataset/generated_events")
     v2e_script = Path("v2e/v2e.py")
     
     # Ensure output directory exists
